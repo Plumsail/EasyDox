@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
+    <PackageId>EasyDox</PackageId>
+    <Authors>Plumsail</Authors>
+    <Description>Mail merge Word documents from C#.</Description>
+    <PackageTags>word docs documents mail merge</PackageTags>
+    <PackageProjectUrl>https://github.com/Plumsail/EasyDox</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/Plumsail/EasyDox</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+  </PropertyGroup>
+  <ItemGroup>
+	  <PackageReference Include="System.IO.Packaging" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<InternalsVisibleTo Include="$(AssemblyName).Tests" />
+  </ItemGroup>
+</Project>
+
+
