@@ -91,18 +91,30 @@ namespace EasyDox
                 {
                     var missingProperties = new List<string>();
 
-                    properties.FindMissingProperties(exp, missingProperties);
+                    var validProperties = ExcludeEmptyProperties(properties);
+                    validProperties.FindMissingProperties(exp, missingProperties);
 
                     errors.AddRange(missingProperties.Select(p => new MergeError(v => v.MissingField(p))));
 
                     if (missingProperties.Count == 0) // otherwise Eval will throw
                     {
-                        field.Value = ApplyFormat(properties.Eval(exp), format);
+                        field.Value = ApplyFormat(validProperties.Eval(exp), format);
                     }
                 }
             }
 
             return errors;
+        }
+
+        private static Properties ExcludeEmptyProperties(Properties properties)
+        {
+            var validProperties = new Properties();
+            foreach (var property in properties.Where(property => !string.IsNullOrEmpty(property.Value)))
+            {
+                validProperties.Add(property.Key, property.Value);
+            }
+
+            return validProperties;
         }
 
         private static string ApplyFormat(string s, CaptureCollection format)

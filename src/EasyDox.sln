@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyDox", "EasyDox\EasyDox.csproj", "{0A470181-7A69-4288-AAB4-C062E18BDD07}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDox", "EasyDox\EasyDox.csproj", "{0A470181-7A69-4288-AAB4-C062E18BDD07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EasyDox.Tests", "EasyDox.Tests\EasyDox.Tests.csproj", "{C224E6DE-D77A-489E-8C2F-D300C585542C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EasyDox.Tests", "EasyDox.Tests\EasyDox.Tests.csproj", "{C224E6DE-D77A-489E-8C2F-D300C585542C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -24,5 +24,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AAD937D8-7449-4992-89F2-252C1B208720}
 	EndGlobalSection
 EndGlobal

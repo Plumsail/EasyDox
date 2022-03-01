@@ -31,4 +31,4 @@ jobs:
 
       - name: Push to GitHub package registry
         working-directory: ./src
-        run: dotnet nuget push "*.nupkg" -k ${{secrets.NUGETORGTOKEN}} -s https://api.nuget.org/v3/index.json --skip-duplicate 
+        run: dotnet nuget push "*.nupkg" -k ${{secrets.NUGETTOKEN}} -s https://api.nuget.org/v3/index.json --skip-duplicate 

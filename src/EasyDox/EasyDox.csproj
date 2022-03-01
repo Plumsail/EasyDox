@@ -1,20 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net6.0</TargetFrameworks>
-    <PackageId>EasyDox</PackageId>
-    <Authors>Plumsail</Authors>
+    <PackageId>Plumsail.EasyDox</PackageId>
+    <PackageVersion>3.0.4</PackageVersion>
+    <Version>3.0.4</Version>
+    <Authors>bzaar</Authors>
+    <Company>Plumsail</Company>
+    <Title>Mail merge Word documents from C#</Title>
     <Description>Mail merge Word documents from C#.</Description>
-    <PackageTags>word docs documents mail merge</PackageTags>
+    <PackageTags>word;docs;documents;mail;merge;merge word documents</PackageTags>
     <PackageProjectUrl>https://github.com/Plumsail/EasyDox</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Plumsail/EasyDox</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
+    <IsPackable>true</IsPackable>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <LangVersion>Latest</LangVersion>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0|AnyCPU'">
+    <WarningLevel>5</WarningLevel>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="..\..\readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
   <ItemGroup>
 	  <PackageReference Include="System.IO.Packaging" Version="6.0.0" />
   </ItemGroup>
-
   <ItemGroup>
 	<InternalsVisibleTo Include="$(AssemblyName).Tests" />
   </ItemGroup>
