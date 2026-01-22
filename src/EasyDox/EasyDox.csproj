@@ -2,9 +2,8 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net9.0;net10.0</TargetFrameworks>
     <PackageId>Plumsail.EasyDox</PackageId>
-    <PackageVersion>3.0.4</PackageVersion>
-    <Version>3.0.4</Version>
     <Authors>bzaar</Authors>
+    <VersionPrefix>3.0.5</VersionPrefix>
     <Company>Plumsail</Company>
     <Title>Mail merge Word documents from C#</Title>
     <Description>Mail merge Word documents from C#.</Description>
