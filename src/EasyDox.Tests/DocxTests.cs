@@ -1,8 +1,11 @@
-﻿using System.IO;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Packaging;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Xml;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace EasyDox.Tests
 {
@@ -165,6 +168,32 @@ namespace EasyDox.Tests
             xdoc.Load("DocxComplexField.xml");
             var fields = Docx.GetFields(xdoc);
             fields.First().Value = "Иванов И.И.";
+        }
+
+        [TestMethod]
+        [DeploymentItem("StructuredXml.docx")]
+        public void TestMethod9()
+        {
+            var file = "StructuredXml.docx";
+            Docx.MergeInplace(new Engine(), file, new Dictionary<string, string>(){{ "field1", "1" } });
+
+            using var package = Package.Open(file, FileMode.Open, FileAccess.ReadWrite);
+
+            var part = package.GetPart(new Uri("/word/document.xml", UriKind.Relative));
+
+            var xdoc = new XmlDocument();
+            xdoc.Load("DocxComplexField.xml");
+            using var stream = part.GetStream(FileMode.Open, FileAccess.Read);
+
+            try
+            {
+                xdoc.Load(stream);
+                Assert.IsTrue(true);
+            }
+            catch (Exception)
+            {
+                Assert.IsTrue(false);
+            }
         }
     }
 }

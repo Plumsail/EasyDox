@@ -37,7 +37,7 @@ namespace EasyDox
 
                 var fields = ReplaceMergeFieldsAndReturnMissingFieldNames(xdoc, fieldValues, engine);
 
-                using (var partStream = part.GetStream(FileMode.Open, FileAccess.Write))
+                using (var partStream = part.GetStream(FileMode.Create, FileAccess.Write))
                 using (var partWrt = new StreamWriter(partStream))
                 {
                     xdoc.Save(partWrt);
