@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="EasyDox.Tests/EasyDox.Tests.csproj" />
+  <Project Path="EasyDox/EasyDox.csproj" />
+</Solution>
