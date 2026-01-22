@@ -27,8 +27,8 @@ jobs:
 
       - name: Generate a NuGet package
         working-directory: ./src
-        run: dotnet pack --no-build -c Release -o .
+        run: dotnet pack --no-build --version-suffix ci${{ github.run_id }} -c Release -o .
 
       - name: Push to GitHub package registry
         working-directory: ./src
-        run: dotnet nuget push "*.nupkg" -k ${{secrets.NUGETTOKEN}} -s https://api.nuget.org/v3/index.json --skip-duplicate 
+        run: dotnet nuget push "*.nupkg" -k ${{secrets.NUGETTOKEN}} -s https://api.nuget.org/v3/index.json --skip-duplicate
